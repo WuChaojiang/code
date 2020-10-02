@@ -1,10 +1,6 @@
 package com.yihe;
 
-import Demo.ArraysDemo;
-import Demo.InoutDemo;
-import Demo.OperatorDemo;
-
-import java.io.FileNotFoundException;
+import Demo.CalendarDemo;
 
 public class Main {
 
@@ -25,7 +21,11 @@ public class Main {
 //        for (int i = 0; i < 5; ++i)
 //            arraysDemo.testRandomNumber();
 
-        OperatorDemo operatorDemo = new OperatorDemo();
-        operatorDemo.test();
+//        OperatorDemo operatorDemo = new OperatorDemo();
+//        operatorDemo.test();
+
+        CalendarDemo classDemo = new CalendarDemo();
+//        classDemo.test();
+        classDemo.printCalendar();
     }
 }
