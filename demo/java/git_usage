@@ -1,4 +1,5 @@
 git checkout -b dev # 从当前分支创建一个分支dev，并切换到dev分支
+或者git branch dev # 创建分支成功后不会有提示，但是当前的分支不会切换
 git checkout master # 切换到master分支
 git merge dev # 将dev所修改的分支内容合并到master中，前提是当前分支是master分支
 
@@ -11,7 +12,27 @@ git branch -r # 查看远程分支
 git branch -a # 查看本地和远程分支
 git branch -d <branchname> # 删除本地分支
 
-git branch -d -r origin/<branchname> # 删除远程分支，删除后还需要推送到服务器。
-# 若是不推送服务器的话，本地虽然没有了，远程服务器还是存在的。
-git push origin:<branchname> # 删除后推送到远程服务器
-# 从测试的情况来看，直接使用
+git push origin --delete <branchname> # 删除远程分支
+
+git rm -r --cached .idea/* # 删除git上的记录
+git commit -m "删除.idea文件记录并添加到ignore"
+git push origin master # 将当前的修改推送到远程的mater分支上
+
+git fetch：
+取回的代码是放入本地Repository中
+git fetch origin # 将某一个远程主机的更新全部取回本地
+git fetch origin <branchname> # 只取回特定分支的更新
+git log -p FETCH_HEAD # 取回更新后，会返回一个FETCH_HEAD，指的是某个branch在服务器上的最新状态。
+（q：是退出 回车：显示下一行 空格：显示下一屏）
+
+git pull
+git pull 的过程可以理解为：
+git fetch origin master //从远程主机的master分支拉取最新内容
+git merge FETCH_HEAD    //将拉取下来的最新内容合并到当前所在的分支中
+即将远程主机的某个分支的更新取回，并与本地指定的分支合并，完整格式可表示为：
+git pull <远程主机名> <远程分支名>:<本地分支名>
+如果远程分支是与当前分支合并，则冒号后面的部分可以省略：
+git pull origin next
+
+
+
