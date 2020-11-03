@@ -1,7 +1,17 @@
 git checkout -b dev # 从当前分支创建一个分支dev，并切换到dev分支
 git checkout master # 切换到master分支
+git merge dev # 将dev所修改的分支内容合并到master中，前提是当前分支是master分支
+
+# 设置默认的提交，即git push就可以将当前分支的内容提交到对应的远程分支总
+git branch --set-upstream-to=origin/dev # 表示将远程的分支origin/dev作为默认远程提交服务器
+git branch --unset-upstream master # 取消对master的跟踪
 
 git branch # 查看本地分支
 git branch -r # 查看远程分支
 git branch -a # 查看本地和远程分支
+git branch -d <branchname> # 删除本地分支
 
+git branch -d -r origin/<branchname> # 删除远程分支，删除后还需要推送到服务器。
+# 若是不推送服务器的话，本地虽然没有了，远程服务器还是存在的。
+git push origin:<branchname> # 删除后推送到远程服务器
+# 从测试的情况来看，直接使用
