@@ -16,15 +16,18 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f04c9123-3b86-4f4f-b029-cac32149acbe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Demo/CalendarDemo.java" afterDir="false" />
+    <list default="true" id="f04c9123-3b86-4f4f-b029-cac32149acbe" name="Default Changelist" comment="java/modify class name">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/myfile.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/yihe/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/yihe/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +59,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RunManager">
     <configuration name="demo" type="Application" factoryName="Application">
@@ -77,18 +81,79 @@
       <option name="presentableId" value="Default" />
       <updated>1604137449908</updated>
     </task>
+    <task id="LOCAL-00001" summary="java/modify class name">
+      <created>1604311322820</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604311322820</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="java/modify class name" />
+    <option name="LAST_COMMIT_MESSAGE" value="java/modify class name" />
   </component>
   <component name="WindowStateProjectService">
     <state x="174" y="85" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604137706995">
@@ -107,46 +172,54 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state width="477" height="466" key="DebuggerActiveHint/0.0.1440.860@0.0.1440.860" timestamp="1604300394742" />
-    <state width="1397" height="224" key="GridCell.Tab.0.bottom" timestamp="1601629613109">
+    <state x="92" y="92" width="1256" height="676" key="DiffContextDialog" timestamp="1604372375353">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="224" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1601629613109" />
-    <state width="1397" height="224" key="GridCell.Tab.0.center" timestamp="1601629613109">
+    <state x="92" y="92" width="1256" height="676" key="DiffContextDialog/0.0.1440.860@0.0.1440.860" timestamp="1604372375353" />
+    <state width="1397" height="224" key="GridCell.Tab.0.bottom" timestamp="1604311090086">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="224" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1601629613109" />
-    <state width="1397" height="224" key="GridCell.Tab.0.left" timestamp="1601629613108">
+    <state width="1397" height="224" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1604311090086" />
+    <state width="1397" height="224" key="GridCell.Tab.0.center" timestamp="1604311090086">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="224" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1601629613108" />
-    <state width="1397" height="224" key="GridCell.Tab.0.right" timestamp="1601629613109">
+    <state width="1397" height="224" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1604311090086" />
+    <state width="1397" height="224" key="GridCell.Tab.0.left" timestamp="1604311090085">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="224" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1601629613109" />
-    <state width="1397" height="261" key="GridCell.Tab.1.bottom" timestamp="1604306361764">
+    <state width="1397" height="224" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1604311090085" />
+    <state width="1397" height="224" key="GridCell.Tab.0.right" timestamp="1604311090086">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="261" key="GridCell.Tab.1.bottom/0.0.1440.860@0.0.1440.860" timestamp="1604306361764" />
-    <state width="1397" height="261" key="GridCell.Tab.1.center" timestamp="1604306361763">
+    <state width="1397" height="224" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1604311090086" />
+    <state width="1397" height="261" key="GridCell.Tab.1.bottom" timestamp="1604309688669">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="261" key="GridCell.Tab.1.center/0.0.1440.860@0.0.1440.860" timestamp="1604306361763" />
-    <state width="1397" height="261" key="GridCell.Tab.1.left" timestamp="1604306361763">
+    <state width="1397" height="261" key="GridCell.Tab.1.bottom/0.0.1440.860@0.0.1440.860" timestamp="1604309688669" />
+    <state width="1397" height="261" key="GridCell.Tab.1.center" timestamp="1604309688669">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="261" key="GridCell.Tab.1.left/0.0.1440.860@0.0.1440.860" timestamp="1604306361763" />
-    <state width="1397" height="261" key="GridCell.Tab.1.right" timestamp="1604306361763">
+    <state width="1397" height="261" key="GridCell.Tab.1.center/0.0.1440.860@0.0.1440.860" timestamp="1604309688669" />
+    <state width="1397" height="261" key="GridCell.Tab.1.left" timestamp="1604309688669">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="261" key="GridCell.Tab.1.right/0.0.1440.860@0.0.1440.860" timestamp="1604306361763" />
-    <state x="200" y="4" key="SettingsEditor" timestamp="1604137478490">
+    <state width="1397" height="261" key="GridCell.Tab.1.left/0.0.1440.860@0.0.1440.860" timestamp="1604309688669" />
+    <state width="1397" height="261" key="GridCell.Tab.1.right" timestamp="1604309688669">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="200" y="4" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1604137478490" />
+    <state width="1397" height="261" key="GridCell.Tab.1.right/0.0.1440.860@0.0.1440.860" timestamp="1604309688669" />
+    <state x="200" y="4" key="SettingsEditor" timestamp="1604311268995">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="200" y="4" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1604311268995" />
     <state x="441" y="171" width="582" height="524" key="StructurePopup" timestamp="1604302466307">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="441" y="171" width="582" height="524" key="StructurePopup/0.0.1440.860@0.0.1440.860" timestamp="1604302466307" />
+    <state x="312" y="163" key="Vcs.Push.Dialog.v2" timestamp="1604311330983">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="312" y="163" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1604311330983" />
     <state x="326" y="40" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604302943623">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
