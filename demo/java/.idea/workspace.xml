@@ -26,6 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f04c9123-3b86-4f4f-b029-cac32149acbe" name="Default Changelist" comment="java/modify class name">
+      <change afterPath="$PROJECT_DIR$/git_usage" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/myfile.txt" afterDir="false" />
     </list>
@@ -148,6 +149,10 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="174" y="85" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.860@0.0.1440.860" timestamp="1604137706995" />
+    <state x="456" y="230" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604392287476">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="456" y="230" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.860@0.0.1440.860" timestamp="1604392287476" />
     <state x="449" y="219" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1604137502767">
       <screen x="0" y="0" width="1440" height="860" />
     </state>

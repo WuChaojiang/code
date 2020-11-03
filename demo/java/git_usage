@@ -1,0 +1,2 @@
+git checkout -b dev # 从当前分支创建一个分支dev，并切换到dev分支
+git checkout master # 切换到master分支
