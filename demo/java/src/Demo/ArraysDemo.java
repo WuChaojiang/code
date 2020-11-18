@@ -21,8 +21,7 @@ public class ArraysDemo {
         }
 
         int[] result = new int[n];
-
-
+        
         int index = 0;
         while (n > 0) {
             int r = (int)(Math.random() * n);

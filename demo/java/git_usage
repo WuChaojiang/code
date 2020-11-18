@@ -27,12 +27,23 @@ git log -p FETCH_HEAD # 取回更新后，会返回一个FETCH_HEAD，指的是�
 
 git pull
 git pull 的过程可以理解为：
+
+# 强制更新
+git fetch --all # 从远程主机上拉去所有最新内容
+git reset --hard origin/master # 强制set到最新的代码
+
 git fetch origin master //从远程主机的master分支拉取最新内容
 git merge FETCH_HEAD    //将拉取下来的最新内容合并到当前所在的分支中
 即将远程主机的某个分支的更新取回，并与本地指定的分支合并，完整格式可表示为：
 git pull <远程主机名> <远程分支名>:<本地分支名>
 如果远程分支是与当前分支合并，则冒号后面的部分可以省略：
 git pull origin next
+
+git如何放弃所有本地修改
+git checkout . # 本地所有修改。没有提交的，都返回到原来的状态
+git stash # 把所有没有提交的修改暂存到stash里面，可用git stash pop恢复
+git reset --hard HASH # 返回到某个节点，不保留修改
+git reset --soft HASH # 返回到摸个节点，保留修改
 
 
 
