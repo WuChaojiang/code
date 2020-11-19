@@ -7,10 +7,10 @@
             "label": "build C++ train",
             "type": "shell",
             "command": "g++",
-            "args": ["-g", "${workspaceFolder}/*.cpp"  , "-o", "train"],
+            "args": ["-g", "${workspaceFolder}/*.cpp"  , "-o", "train"],  // 编译参数设置-g表示可以使用gdb调试
             "group": {
                 "kind": "build",
-                "isDefault": true
+                "isDefault": true  // 可以使用Ctrl+Shift+B进行编译
             }
         }
     ]

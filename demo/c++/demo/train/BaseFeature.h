@@ -1,22 +1,35 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <memory>
+
+
+enum class Options {
+    None,
+    One,
+    All
+};
 
 class A
 {
     public:
-    void testForeach() 
-    {
-        auto i = 1;
-        auto l = 42LL;
+    void testForeach();
 
-        std::vector<int> iv = {1,2,3,4,5,6};
+    Options getOptions(int num);
 
-        for(auto i : iv) 
-        {
-            std::cout << i << std::endl;
-        }
-    }
+    void testUniquePtr();
+    void testSharePtr();
+    void testWeakPtr();
+    void testLoopReference();
+
+    void testLambda();
+
+    private:
+    void foo(int *p);
+    void bar(std::shared_ptr<int> p);
+
+    void testBeginEnd();
+  
 };
 
 class B
@@ -38,3 +51,21 @@ class F : public D
 
     // virtual void f(int) override { std::cout << "F::f" << std::endl; }
 };
+
+struct AStruct;
+struct BStruct;
+
+struct AStruct
+{
+    // std::shared_ptr<BStruct> bPtr;
+    std::weak_ptr<BStruct> bPtr;
+    ~AStruct() { std::cout << "AStruct is deleted!" << std::endl; }
+};
+
+struct BStruct
+{
+    // std::shared_ptr<AStruct> aPtr;
+    std::weak_ptr<AStruct> aPtr;
+    ~BStruct() { std::cout << "BStruct is deleted!" << std::endl; }
+};
+
