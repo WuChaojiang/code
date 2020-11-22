@@ -17,6 +17,11 @@ int main()
     a.testWeakPtr();
     a.testLoopReference(); 
     a.testLambda();
+    a.testC99();
+    a.testPrintf();
+    a.testMacro();
+    a.testUnicodeLib();
+    a.testUnicodeLib2();
 
 
     return 0;

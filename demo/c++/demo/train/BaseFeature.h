@@ -1,7 +1,18 @@
 #pragma once
+_Pragma("once")
+
 #include <iostream>
 #include <vector>
 #include <memory>
+
+#define LOG(...) {\
+    fprintf(stderr, "%s line:%d ", __FILE__, __LINE__);\
+    fprintf(stderr, __VA_ARGS__);\
+    fprintf(stderr, "\n");\
+    }
+
+#define PR(...) printf(__VA_ARGS__)
+
 
 
 enum class Options {
@@ -23,13 +34,20 @@ class A
     void testLoopReference();
 
     void testLambda();
+    void testC99();
+
+    void testPrintf();
+    void testMacro(...);
+    void testUnicodeLib();
+    void testUnicodeLib2(void);
+
+
 
     private:
     void foo(int *p);
     void bar(std::shared_ptr<int> p);
 
     void testBeginEnd();
-  
 };
 
 class B

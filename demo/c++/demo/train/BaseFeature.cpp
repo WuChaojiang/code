@@ -1,6 +1,11 @@
 #include "BaseFeature.h"
 #include <algorithm>
+#include <stdio.h>
+#include <string>
 
+namespace {
+    static const char kTag[] = "Chris: ";
+}
 void A::testForeach()
 {
     auto i = 1;
@@ -135,4 +140,107 @@ void A::testLambda()
 void A::testBeginEnd()
 {
     
+}
+
+void A::testC99()
+{
+    std::cout << "test C99 in C++11: ";
+    std::cout << "function name: " << __func__ << " file: " << __FILE__ << " line: "<< __LINE__ << std::endl;
+}
+
+void A::testPrintf()
+{
+    std::cout << "test Printf: ";
+
+    printf("%s\n", "Hello world");
+    // fprintf(stdout, "%s\n", "Hello World");
+    fprintf(stderr, "%s\n", "This is a error o移动utput");
+
+    // 1>log.txt 2>err.txt  pipe stream, 1> get the stdout output, 2> get the stderr output
+}
+
+#define XNAME(n) x##n
+#define PXN(n) printf("x" #n " = %d\n", x##n)
+
+#define TEST1(param1, param2, var)   param1##param2 var
+#define TEST2(param1, param2)  param1##param2
+#define PASTE_STR(param1, param2)  param1 param2
+// #define _TEST1(param1, param2)  TEST1(param1, param2)
+#define HELLO F
+#define WORLD f
+
+void A::testMacro(...)
+{
+    int XNAME(1) = 12; // define variable x1, and assign 12 to it
+
+    PXN(1);
+
+    int a = TEST2(12, 43);
+    printf("%d\n", a);
+
+    
+    // TEST(HELLO, WORLD);
+    TEST1(in, t, x) = 1;
+    // printf("%s\n", str);
+
+    char cszHello[] = "hello";
+    // char *q = TEST2("Hello", "World!"); // if so, the result of q is "Hello""World!". it's wrong! 
+
+    char cszWelcomeWorld[] = PASTE_STR("Hello", "World");
+    printf("welcome world is %s\n", cszWelcomeWorld);
+    printf("file name is: %s\n", __FILE__);
+
+    LOG("%s %s", kTag, "use the __VA_ARGS__");
+}
+
+#include <cuchar>
+
+void A::testUnicodeLib()
+{
+    setlocale(LC_ALL, "en_US.utf8");
+    char16_t utf16[] = u"\u4F60\u597D\u554A";
+    std::size_t in_sz = sizeof(utf16) / sizeof(*utf16);
+
+    char mbr[sizeof(utf16)*2] = {0};
+    char *p = mbr;
+    mbstate_t s;
+    for(std::size_t n = 0; n < in_sz; ++n)
+    {
+        int len = c16rtomb(p, utf16[n], &s);
+        if (len == -1)
+        {
+            break;
+        } 
+        else 
+        {
+            p += len;
+        }
+    }
+    
+    std::cout << "uft-16 -> utf-8: " << mbr << std::endl;
+}
+
+void A::testUnicodeLib2(void)
+{
+    setlocale(LC_ALL, "en_US.utf8");
+    char16_t in[] = u"zß水?"; // or "z\u00df\u6c34\U0001F34C"
+    size_t in_sz = sizeof in / sizeof *in;
+ 
+    printf("Processing %zu UTF-16 code units: [ ", in_sz);
+    for(size_t n = 0; n < in_sz; ++n) printf("%#x ", in[n]);
+    puts("]");
+ 
+    mbstate_t state;
+    char out[MB_CUR_MAX * in_sz] = {0};
+    char *p = out;
+    for(size_t n = 0; n < in_sz; ++n) {
+        int rc = c16rtomb(p, in[n], &state); 
+        if(rc == -1) break;
+        p += rc;
+    }
+ 
+    size_t out_sz = p - out;
+    printf("into %zu UTF-8 code units: [ ", out_sz);
+    for(size_t x = 0; x < out_sz; ++x) printf("%#x ", +(unsigned char)out[x]);
+    puts("]");
 }
