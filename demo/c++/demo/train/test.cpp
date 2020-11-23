@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "Container.h"
 #include "BaseFeature.h"
+#include "Copyable.h"
 
 
 int main() 
@@ -28,5 +29,9 @@ int main()
     a.testBeginEnd();
     a.testStaticAssert();
 
+    a.testRawStringLiteral();
+    a.testUnicodeLibStream();
+
+    testCopy();
     return 0;
 }
