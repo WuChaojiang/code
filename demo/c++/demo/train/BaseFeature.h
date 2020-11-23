@@ -21,6 +21,7 @@ enum class Options {
     All
 };
 
+
 class A
 {
     public:
@@ -32,7 +33,6 @@ class A
     void testSharePtr();
     void testWeakPtr();
     void testLoopReference();
-
     void testLambda();
     void testC99();
 
@@ -41,13 +41,11 @@ class A
     void testUnicodeLib();
     void testUnicodeLib2(void);
 
+    void testBeginEnd();
+    void testStaticAssert();
 
-
-    private:
     void foo(int *p);
     void bar(std::shared_ptr<int> p);
-
-    void testBeginEnd();
 };
 
 class B

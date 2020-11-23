@@ -9,6 +9,8 @@ int main()
     // system("pause");
     Container c;
     c.testVector();
+    c.testMismatch();
+    c.testFind();
 
     A a;
     a.testForeach();
@@ -23,6 +25,8 @@ int main()
     a.testUnicodeLib();
     a.testUnicodeLib2();
 
+    a.testBeginEnd();
+    a.testStaticAssert();
 
     return 0;
 }

@@ -9,4 +9,6 @@ public:
     ~Container(void) {}
 
     void testVector(void);
+    void testMismatch();
+    void testFind();
 };

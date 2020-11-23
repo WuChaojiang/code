@@ -139,7 +139,39 @@ void A::testLambda()
 
 void A::testBeginEnd()
 {
+    std::cout << "test std::begin and std::end: ";
+    int arr[] = {1, 2, 3};
+    std::for_each(std::begin(arr), std::end(arr), [](int n){
+        std::cout << n << " ";
+    });
+
+    auto is_odd = [](int n) { return n % 2 == 1; };
+    auto pos = std::find_if(std::begin(arr), std::end(arr), is_odd);
+    if (pos != std::end(arr))
+    {
+        std::cout << *pos << std::endl;
+    }
+}
+
+
+template <typename T, size_t sz>
+class Vector
+{
+    public:
+    static_assert(sz > 3, "The size is too small");
+    T _points[sz];
+};
+
+
+template <typename T1, typename T2>
+auto add(T1 t1, T2 t2) -> decltype(t1 + t2)
+{
+    // std::is_integral<T>::value 中的T只能是：bool, char, char16_t, char32_t, wchar_t, short, int, long, long long
+    static_assert(std::is_integral<T1>::value, "Type T1 must be intergral");
+    static_assert(std::is_integral<T2>::value, "Type T2 must be intergral");
+
     
+    return t1 + t2;
 }
 
 void A::testC99()
@@ -243,4 +275,17 @@ void A::testUnicodeLib2(void)
     printf("into %zu UTF-8 code units: [ ", out_sz);
     for(size_t x = 0; x < out_sz; ++x) printf("%#x ", +(unsigned char)out[x]);
     puts("]");
+}
+
+void A::testStaticAssert()
+{
+    int intsize = sizeof(long);
+    std::cout << "test static assert: " << intsize;
+    static_assert(sizeof(long) == 4, "Can not run on 64 bit system");
+    Vector<int, 6> a1;
+    std::cout << "a1._points: " << a1._points << std::endl;
+    Vector<double, 16> a2;
+
+    std::cout << add(1, 1) << std::endl;
+    std::cout << add(4, 2) << std::endl;
 }
