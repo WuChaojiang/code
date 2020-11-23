@@ -1,9 +1,14 @@
 #include "BaseFeature.h"
 #include <algorithm>
+#include <iostream>
 #include <stdio.h>
 #include <string>
+#include <fstream>
+#include <locale>
+#include <iomanip>
 
-namespace {
+namespace
+{
     static const char kTag[] = "Chris: ";
 }
 void A::testForeach()
@@ -64,7 +69,6 @@ void A::testWeakPtr()
         std::cout << "test weak_ptr: " << *sp.get() << std::endl;
     }
 
-    
     std::shared_ptr<int> p2 = p;
     p.reset(); // 对原有对象进行引数减1操作
 
@@ -76,7 +80,6 @@ void A::testWeakPtr()
     {
         std::cout << "weak_ptr is not expired" << std::endl;
     }
-    
 }
 
 void A::foo(int *p)
@@ -124,14 +127,14 @@ void A::testLambda()
 
     std::cout << "lambda: ";
     int x;
-    std::for_each(v.begin(), v.end(), [&x](int n){
+    std::for_each(v.begin(), v.end(), [&x](int n) {
         x = n;
         std::cout << x << " ";
     });
 
     auto is_odd = [](int n) { return n % 2 == 1; };
     auto pos = std::find_if(std::begin(v), std::end(v), is_odd);
-    if (pos != std::end(v)) 
+    if (pos != std::end(v))
     {
         std::cout << "" << *pos << std::endl;
     }
@@ -141,7 +144,7 @@ void A::testBeginEnd()
 {
     std::cout << "test std::begin and std::end: ";
     int arr[] = {1, 2, 3};
-    std::for_each(std::begin(arr), std::end(arr), [](int n){
+    std::for_each(std::begin(arr), std::end(arr), [](int n) {
         std::cout << n << " ";
     });
 
@@ -153,15 +156,13 @@ void A::testBeginEnd()
     }
 }
 
-
 template <typename T, size_t sz>
 class Vector
 {
-    public:
+public:
     static_assert(sz > 3, "The size is too small");
     T _points[sz];
 };
-
 
 template <typename T1, typename T2>
 auto add(T1 t1, T2 t2) -> decltype(t1 + t2)
@@ -170,14 +171,13 @@ auto add(T1 t1, T2 t2) -> decltype(t1 + t2)
     static_assert(std::is_integral<T1>::value, "Type T1 must be intergral");
     static_assert(std::is_integral<T2>::value, "Type T2 must be intergral");
 
-    
     return t1 + t2;
 }
 
 void A::testC99()
 {
     std::cout << "test C99 in C++11: ";
-    std::cout << "function name: " << __func__ << " file: " << __FILE__ << " line: "<< __LINE__ << std::endl;
+    std::cout << "function name: " << __func__ << " file: " << __FILE__ << " line: " << __LINE__ << std::endl;
 }
 
 void A::testPrintf()
@@ -194,9 +194,9 @@ void A::testPrintf()
 #define XNAME(n) x##n
 #define PXN(n) printf("x" #n " = %d\n", x##n)
 
-#define TEST1(param1, param2, var)   param1##param2 var
-#define TEST2(param1, param2)  param1##param2
-#define PASTE_STR(param1, param2)  param1 param2
+#define TEST1(param1, param2, var) param1##param2 var
+#define TEST2(param1, param2) param1##param2
+#define PASTE_STR(param1, param2) param1 param2
 // #define _TEST1(param1, param2)  TEST1(param1, param2)
 #define HELLO F
 #define WORLD f
@@ -210,13 +210,12 @@ void A::testMacro(...)
     int a = TEST2(12, 43);
     printf("%d\n", a);
 
-    
     // TEST(HELLO, WORLD);
     TEST1(in, t, x) = 1;
     // printf("%s\n", str);
 
     char cszHello[] = "hello";
-    // char *q = TEST2("Hello", "World!"); // if so, the result of q is "Hello""World!". it's wrong! 
+    // char *q = TEST2("Hello", "World!"); // if so, the result of q is "Hello""World!". it's wrong!
 
     char cszWelcomeWorld[] = PASTE_STR("Hello", "World");
     printf("welcome world is %s\n", cszWelcomeWorld);
@@ -233,22 +232,22 @@ void A::testUnicodeLib()
     char16_t utf16[] = u"\u4F60\u597D\u554A";
     std::size_t in_sz = sizeof(utf16) / sizeof(*utf16);
 
-    char mbr[sizeof(utf16)*2] = {0};
+    char mbr[sizeof(utf16) * 2] = {0};
     char *p = mbr;
     mbstate_t s;
-    for(std::size_t n = 0; n < in_sz; ++n)
+    for (std::size_t n = 0; n < in_sz; ++n)
     {
         int len = c16rtomb(p, utf16[n], &s);
         if (len == -1)
         {
             break;
-        } 
-        else 
+        }
+        else
         {
             p += len;
         }
     }
-    
+
     std::cout << "uft-16 -> utf-8: " << mbr << std::endl;
 }
 
@@ -257,23 +256,27 @@ void A::testUnicodeLib2(void)
     setlocale(LC_ALL, "en_US.utf8");
     char16_t in[] = u"zß水?"; // or "z\u00df\u6c34\U0001F34C"
     size_t in_sz = sizeof in / sizeof *in;
- 
+
     printf("Processing %zu UTF-16 code units: [ ", in_sz);
-    for(size_t n = 0; n < in_sz; ++n) printf("%#x ", in[n]);
+    for (size_t n = 0; n < in_sz; ++n)
+        printf("%#x ", in[n]);
     puts("]");
- 
+
     mbstate_t state;
     char out[MB_CUR_MAX * in_sz] = {0};
     char *p = out;
-    for(size_t n = 0; n < in_sz; ++n) {
-        int rc = c16rtomb(p, in[n], &state); 
-        if(rc == -1) break;
+    for (size_t n = 0; n < in_sz; ++n)
+    {
+        int rc = c16rtomb(p, in[n], &state);
+        if (rc == -1)
+            break;
         p += rc;
     }
- 
+
     size_t out_sz = p - out;
     printf("into %zu UTF-8 code units: [ ", out_sz);
-    for(size_t x = 0; x < out_sz; ++x) printf("%#x ", +(unsigned char)out[x]);
+    for (size_t x = 0; x < out_sz; ++x)
+        printf("%#x ", +(unsigned char)out[x]);
     puts("]");
 }
 
@@ -288,4 +291,49 @@ void A::testStaticAssert()
 
     std::cout << add(1, 1) << std::endl;
     std::cout << add(4, 2) << std::endl;
+}
+
+void A::testRawStringLiteral()
+{
+    char c1[] = u8R"(Hello, World\n 
+    Hello Everyone)";
+
+    char c11[] = u8R"(Hello中国)";
+    char16_t c2[] = uR"(Hello中国)";
+
+    std::size_t len1 = sizeof(c11);
+    std::size_t len2 = sizeof(c2);
+
+    std::cout << c11 << " length is: " << len1;
+    std::cout << c2 << "length is: " << len2;
+
+    std::cout << "print raw string: " << c1 << std::endl;
+}
+
+void A::testUnicodeLibStream(void)
+{
+    try
+    {
+        std::ofstream("text.txt") << u8"z\u00df\u6c34\U0001d10b";
+        std::wifstream fin("text.text");
+        fin.imbue(std::locale("en_US.UTF-8")); // 保证本地化输出
+        // std::setlocale(LC_ALL, "C");
+        // fin.imbue(std::locale("CHS")); // 保证本地化输出
+
+        for (wchar_t c; fin >> c;)
+        {
+            std::cout << "U+" << std::hex << std::setw(4) << std::setfill('0') << c << std::endl;
+        }
+    }
+    catch (...)
+    {
+        std::cout << "throw exception!" << std::endl;
+    }
+}
+
+void A::testRightReference()
+{
+    int &&a = 1;
+    int b = 2;
+    int &c = b;
 }

@@ -40,12 +40,17 @@ class A
     void testMacro(...);
     void testUnicodeLib();
     void testUnicodeLib2(void);
+    void testUnicodeLibStream(void);
 
     void testBeginEnd();
     void testStaticAssert();
 
     void foo(int *p);
     void bar(std::shared_ptr<int> p);
+
+    void testRawStringLiteral();
+
+    void testRightReference();
 };
 
 class B
