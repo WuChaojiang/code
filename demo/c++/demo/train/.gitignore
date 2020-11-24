@@ -1,0 +1,20 @@
+train.exe
+text.txt
+
+# 1.在.gitignore中输入以下内容
+# .开头的任何文件
+.*
+
+# 排除.gitignore本身
+!/.gitignore
+
+# 2.清除git缓存，若是不清除缓存，修改.gitignore是没有效果的
+# 因为cached是暂存区，工作目录的修改需要与暂存区比较，因此
+# git status会显示差异，为了生效，需要删除暂存区。最后将所有
+# 本地文件跟踪一下，得到最新的暂存区文件
+
+# git rm -r --cached .
+# git add .
+# git commit -m 'udpate .gitignore'
+
+

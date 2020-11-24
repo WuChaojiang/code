@@ -337,3 +337,11 @@ void A::testRightReference()
     int b = 2;
     int &c = b;
 }
+
+void A::testDecay(void)
+{
+    std::cout << "test decay" << std::endl;
+    std::cout << std::boolalpha
+                << decay_equiv<int, int>::value << std::endl
+                << decay_equiv<int&&, int>::value << std::endl;
+}

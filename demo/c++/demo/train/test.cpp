@@ -32,6 +32,21 @@ int main()
     a.testRawStringLiteral();
     a.testUnicodeLibStream();
 
+
+    int num = 1;
+    const int &num1 = num;
+    int &num2 = num;
+    int &&num3 = 1;
+    std::string str = "Hello World!";
+    typeCheck<int>(num);
+    typeCheck<const int &>(num1);
+    typeCheck<int &>(num2);
+    typeCheck(8);
+
     testCopy();
+
+    a.testDecay();
+
+    
     return 0;
 }
