@@ -5,7 +5,7 @@ _Pragma("once")
 #include <iostream>
 #include <vector>
 #include <memory>
-#include "TestTemplate.h"
+#include "universal\test_template.h"
 
 
 #define LOG(...) {\

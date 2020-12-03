@@ -1,4 +1,4 @@
-#include "MyData.h"
+#include "my_data.h"
 #include <iostream>
 
 MyData& MyData::operator[](initializer_list<int> l)

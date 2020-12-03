@@ -1,8 +1,8 @@
-#include "RGBA.h"
+#include "literal_constant.h"
 
 RGBA::RGBA(uint8 R, uint8 G, uint8 B, uint8 A) : r(R), g(G), b(B), a(A) {}
 
-RGBA operator"" _C(const char *col, size_t n)
+RGBA operator"" _C(const char *col, std::size_t n)
 {
     const char *p = col;
     const char *end = col + n;

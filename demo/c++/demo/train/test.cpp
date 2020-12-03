@@ -2,12 +2,12 @@
 #include "Container.h"
 #include "BaseFeature.h"
 #include "Copyable.h"
-#include "TestTemplate.h"
+#include "universal\test_template.h"
 #include "MyString.h"
-#include "has_ptr_mem.h"
-#include "huge_mem.h"
-#include "MyData.h"
-#include "RGBA.h"
+#include "universal\has_ptr_mem.h"
+#include "universal\huge_mem.h"
+#include "universal\my_data.h"
+#include "universal\literal_constant.h"
 
 extern template void test_fun1<int>(int);
 // HasPtrMem GetTemp();
