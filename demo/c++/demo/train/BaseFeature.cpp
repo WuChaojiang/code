@@ -7,6 +7,9 @@
 #include <locale>
 #include <iomanip>
 
+
+template void test_fun1<int>(int);
+
 namespace
 {
     static const char kTag[] = "Chris: ";
@@ -344,4 +347,48 @@ void A::testDecay(void)
     std::cout << std::boolalpha
                 << decay_equiv<int, int>::value << std::endl
                 << decay_equiv<int&&, int>::value << std::endl;
+}
+
+void A::testDestructor()
+{
+    X x;
+    static_assert(noexcept(x.~X()), "Ouch!"); // 此处noexcept(x.~X()) 返回true
+    // static_assert(noexcept(x.a()), "Ouch!"); // 此处noexcept(x.a()) 返回false
+}
+
+
+void process(int &i) { 
+    std::cout << "process(int&):" << i << std::endl;
+}
+
+void process(int &&i) {
+    std::cout << "process(int&&):" << i << std::endl;
+}
+
+void myforward(int &&i) {
+    std::cout << "myforward(int&&):" << i <<std::endl;
+    process(i);
+}
+
+void myforwarding(int&& i) {
+    std::cout << "myforwarding(int&&):" << i << std::endl;
+    process(std::forward<int>(i));
+}
+
+
+void A::testForwarding()
+{
+    int a = 0;
+    process(a);
+    process(1);
+    process(std::move(a));
+    myforward(2);
+    myforward(std::move(a));
+
+    myforwarding(2); // process(int&&): 2
+}
+
+void A::testTemplate() 
+{
+    test_fun1(1);
 }

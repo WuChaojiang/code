@@ -5,6 +5,8 @@ _Pragma("once")
 #include <iostream>
 #include <vector>
 #include <memory>
+#include "TestTemplate.h"
+
 
 #define LOG(...) {\
     fprintf(stderr, "%s line:%d ", __FILE__, __LINE__);\
@@ -13,8 +15,6 @@ _Pragma("once")
     }
 
 #define PR(...) printf(__VA_ARGS__)
-
-
 
 enum class Options {
     None,
@@ -53,6 +53,11 @@ class A
 
     void testRightReference();
     void testDecay(void);
+
+    void testDestructor();
+    void testForwarding();
+
+    void testTemplate();
 };
 
 class B
@@ -110,3 +115,8 @@ template<typename T, typename U>
 struct decay_equiv : std::is_same<typename std::decay<T>::type, U>::type
 {};
 
+struct X
+{
+    ~X() {}
+    void a() {}
+};
