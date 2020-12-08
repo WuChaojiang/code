@@ -1,0 +1,29 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build C++ train",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                // "-std=c++11",
+                // "-D_GLIBCXX_USE_NANOSLEEP",
+                // "-fno-elide-constructors", 
+                "-pthread",
+                "${workspaceFolder}/*.cpp", 
+                "${workspaceFolder}/universal/*.cpp" , 
+                "${workspaceFolder}/multithread/*.cpp", 
+                "-o", 
+                "train"],  // 编译参数设置-g表示可以使用gdb调试
+            // "args": ["-g",  "${workspaceFolder}/*.cpp"  , "-o", "train"],  // 编译参数设置-g表示可以使用gdb调试
+            // -fno-elide-constructors 用于关闭返回值优化
+            "group": {
+                "kind": "build",
+                "isDefault": true  // 可以使用Ctrl+Shift+B进行编译
+            }
+        }
+    ]
+}

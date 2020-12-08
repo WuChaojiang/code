@@ -4,7 +4,7 @@ text.txt
 
 # 1.在.gitignore中输入以下内容
 # .开头的任何文件
-.*
+#.*
 
 # 排除.gitignore本身
 !/.gitignore
