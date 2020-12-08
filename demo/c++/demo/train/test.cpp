@@ -8,6 +8,11 @@
 #include "universal\huge_mem.h"
 #include "universal\my_data.h"
 #include "universal\literal_constant.h"
+#include "universal\test_namespace.h"
+#include "universal\sfinae.h"
+#include "universal\type_id.h"
+#include <string.h>
+#include "multithread\test_thread1.h"
 
 extern template void test_fun1<int>(int);
 // HasPtrMem GetTemp();
@@ -79,6 +84,46 @@ int main()
 
     blend("r255 g240 b155"_C, "r15 g255 b10 a10"_C); // 用户自定义字面量
     Watt capacity = 1024_w;
+
+
+    char sz[] = "Hello template";
+
+    MapString<int> numberString;
+    numberString[1] = sz;
+
+
+    // test template alias
+    TemplateA<int> ta(1);
+    int ret = ta.get_value();
+
+    AliasTemplateA<int> ata1(100);
+    int ret1 = ata1.get_value();
+
+    // AliasTestFun1<int> atf1;
+    // atf1(100);
+    test_fun1(16);
+
+    test_ns_func();
+
+    test_sfinae();
+
+    // ff(1);
+
+    // XX<0> x;
+
+    auto name = "Hello, Chris";
+    std::cout << name << std::endl;
+
+    auto var = strlen("Hello, Chris");
+    cout << "strlen(name): " << var << std::endl;
+
+    test_type_id();
+
+    test_decltype();
+
+    test_thread1();
+
+    getchar();
 
     return 0;
 }
