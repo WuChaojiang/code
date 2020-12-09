@@ -3,12 +3,14 @@
 #include <thread>
 #include <mutex>
 #include <condition_variable>
+#include <atomic>
 
 namespace
 {
     std::mutex mtx;
     std::condition_variable cv;
     bool ready = false;
+    std::atomic<bool> ready_atomic(false);
 } // namespace
 
 void do_print_id(int id)
@@ -31,6 +33,7 @@ void go()
 
 void test_thread1()
 {
+    std::thread::id thread_id = std::this_thread::get_id();
     std::thread threads[10];
     for (size_t i = 0; i < 10; i++)
     {
@@ -45,4 +48,35 @@ void test_thread1()
     {
         th.join();
     }
+}
+
+void count1m(int id) {
+    while (!ready_atomic) {
+        std::cout << "std::this_thread::yield(): " << id << std::endl;
+        std::this_thread::yield();
+    }
+
+    for (volatile int i = 0; i < 1000000; i++) {
+        std::cout << "*";
+    }
+
+    std::cout << id;
+}
+
+void test_thread_yield() {
+    std::thread threads[10];
+    std::cout << "race of 10 threads that count to 1 million: ";
+    for (size_t i = 0; i < 10; i++)
+    {
+        threads[i] = std::thread(count1m, i);
+    }
+
+    // ready_atomic = true;
+    std::this_thread::sleep_for(std::chrono::seconds(5));
+    for (auto& th : threads)
+    {
+        th.join();
+    }
+
+    std::cout << std::endl;
 }

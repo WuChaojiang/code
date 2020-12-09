@@ -8,7 +8,7 @@
             "type": "shell",
             "command": "g++",
             "args": [
-                "-g",
+                "-g", // 编译参数设置-g表示可以使用gdb调试
                 // "-std=c++11",
                 // "-D_GLIBCXX_USE_NANOSLEEP",
                 // "-fno-elide-constructors", 
@@ -17,7 +17,7 @@
                 "${workspaceFolder}/universal/*.cpp" , 
                 "${workspaceFolder}/multithread/*.cpp", 
                 "-o", 
-                "train"],  // 编译参数设置-g表示可以使用gdb调试
+                "train"],  
             // "args": ["-g",  "${workspaceFolder}/*.cpp"  , "-o", "train"],  // 编译参数设置-g表示可以使用gdb调试
             // -fno-elide-constructors 用于关闭返回值优化
             "group": {

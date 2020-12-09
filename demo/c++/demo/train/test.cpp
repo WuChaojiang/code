@@ -122,6 +122,7 @@ int main()
     test_decltype();
 
     test_thread1();
+    test_thread_yield();
 
     getchar();
 
