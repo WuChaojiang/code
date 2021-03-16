@@ -53,7 +53,7 @@ void test_thread1()
 void count1m(int id) {
     while (!ready_atomic) {
         std::cout << "std::this_thread::yield(): " << id << std::endl;
-        std::this_thread::yield();
+        std::this_thread::yield();  // 作用，可放于线程函数开始处，
     }
 
     for (volatile int i = 0; i < 1000000; i++) {

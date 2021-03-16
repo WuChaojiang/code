@@ -53,6 +53,9 @@
         "map": "cpp",
         "ratio": "cpp",
         "mutex": "cpp",
-        "thread": "cpp"
+        "thread": "cpp",
+        "functional": "cpp",
+        "iterator": "cpp",
+        "future": "cpp"
     }
 }

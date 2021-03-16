@@ -16,9 +16,21 @@
 
 extern template void test_fun1<int>(int);
 // HasPtrMem GetTemp();
+#include "universal\test_decltyp.h"
+#include "stl\container.h"
+#include "leetcode\leetcode.h"
+#include "stl\mutating.h"
 
 int main() 
 {
+    CLeetcode leetcode;
+    leetcode.test();
+
+    testFunctionObject();
+
+    test_map();
+    test_is_function_same();
+
     printf("Hello World!");
     // system("pause");
     Container c;
@@ -121,10 +133,13 @@ int main()
 
     test_decltype();
 
-    test_thread1();
-    test_thread_yield();
+    // test_thread1();
+    // test_thread_yield();
 
     getchar();
+
+    test_decltype_2();
+    test_decltype_rool();
 
     return 0;
 }

@@ -16,6 +16,8 @@
                 "${workspaceFolder}/*.cpp", 
                 "${workspaceFolder}/universal/*.cpp" , 
                 "${workspaceFolder}/multithread/*.cpp", 
+                "${workspaceFolder}/stl/*.cpp", 
+                "${workspaceFolder}/leetcode/*.cpp", 
                 "-o", 
                 "train"],  
             // "args": ["-g",  "${workspaceFolder}/*.cpp"  , "-o", "train"],  // 编译参数设置-g表示可以使用gdb调试
