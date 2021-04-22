@@ -1,6 +1,8 @@
 #include "type_id.h"
 #include <type_traits>
 #include <map>
+#include <vector>
+#include <string>
 
 void test_type_id() {
     White a;
@@ -80,6 +82,17 @@ void Overloaded(int) {}
 // void Overloaded(char) {}
 int && RvalRef() { return std::move(1); }
 
+void test_for() 
+{	std::vector<std::string> v = {"Hello", "World"};
+	for (auto &e : v)
+	{
+        e.append("haha");
+	}
+
+    for(auto e : v) {
+        std::cout << e << std::endl;
+    }
+}
 
 void test_decltype_rool() {
     // int i = 4;
@@ -112,8 +125,15 @@ void test_decltype_rool() {
     // decltype("lval") var12 = "lval";
 
     // // 规则4：以上都不是，推导为本类型
-    // decltype(1) var13;
+    // decltype() var13;
     // decltype(i++) var14;
     // decltype((Func(1))) var15;
 
+    auto a = 3;
+    auto b = 4L;
+    auto pi = 3.1416;
+    
+    auto c = Sum_test(b, pi);
+
+    std::cout << c;
 }

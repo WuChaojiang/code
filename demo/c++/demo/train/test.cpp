@@ -20,9 +20,16 @@ extern template void test_fun1<int>(int);
 #include "stl\container.h"
 #include "leetcode\leetcode.h"
 #include "stl\mutating.h"
+#include "universal\type_id.h"
+#include "universal\test_demo.h"
 
 int main() 
 {
+
+    test_demo();
+    test_template_compile();
+    test_decltype_rool();
+
     CLeetcode leetcode;
     leetcode.test();
 
