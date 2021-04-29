@@ -47,3 +47,34 @@ template<> struct Fibonacci<1> { const static long val = 1; };
 template<> struct Fibonacci<0> { const static long val = 0; };
 
 void test_template_compile();
+
+
+// struct A {
+//     A() {}
+//     A(const A& a) { std::cout << "Copy Constructed " << __func__ << std::endl; }
+//     A(A&& a) { std::cout << "Move Constructed " << __func__ << std::endl; }
+// };
+
+// struct B {
+//     B() {}
+//     B(const B& b) { std::cout << "Copy Constructed " << __func__ << std::endl; }
+//     B(B&& b) { std::cout << "Move Constructed " << __func__ << std::endl; }
+// };
+
+// template<typename... T> struct MulitTypes;
+// template<typename T1, typename... T>
+// struct MultiTypes<T1, T...> : public MultiTypes<T...> {
+//     T1 t1;
+//     MultiTypes<T1, T...>(T1 a, T... b) 
+//         : t1(a)
+//         , MultiTypes<T...>(b...) {
+//             std::cout << "MultiTypes<T1, T...>(T1 a, T... b)" << std::endl;
+//         }
+// };
+
+// template<> struct MultiTypes<> {
+//     MultiTypes<>() {
+//         std::cout << "MultiTypes<>()" << std::endl;
+//     }
+// };
+

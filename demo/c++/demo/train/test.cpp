@@ -26,6 +26,9 @@ extern template void test_fun1<int>(int);
 int main() 
 {
 
+    TestThread testThread;
+    testThread.test();
+    
     test_demo();
     test_template_compile();
     test_decltype_rool();

@@ -5,6 +5,8 @@
 #include <condition_variable>
 #include <atomic>
 
+using namespace std;
+
 namespace
 {
     std::mutex mtx;
@@ -79,4 +81,28 @@ void test_thread_yield() {
     }
 
     std::cout << std::endl;
+}
+
+int TestThread::thead1(int)
+{
+    int t = 1;
+    _a.store(t, std::memory_order_relaxed);
+    _b.store(2, std::memory_order_relaxed);
+    return 1;
+}
+
+int TestThread::thead2(int) 
+{
+    while(_b.load(std::memory_order_relaxed) != 2);
+    std::cout << _a.load(std::memory_order_relaxed) << std::endl;
+    return 1;
+}
+
+void TestThread::test() 
+{
+    thread t1(&TestThread::thead1, this, 0);
+    thread t2(&TestThread::thead2, this, 0);
+
+    t1.join();
+    t2.join();
 }

@@ -16,6 +16,24 @@ void test_mutable_arg() {
     Printf("hello %s\n", std::string("world").c_str());
 }
 
+#include <new>
+extern void* p;
+class NoStackAlloc
+{
+    public:
+        ~NoStackAlloc() = delete;
+};
+
+void test_compile_stack_alloc()
+{
+    // 这个是在栈上分配，所以肯定会调用析构函数。
+    // 既然机构函数没有啦，那就编译失败了
+    // NoStackAlloc nsa; 
+    
+    // new是堆上分配内存，通过delete来删除堆上的内存，可以不调用析构函数
+    new (p) NoStackAlloc(); // placement new, 假设p无需调用析构函数
+}
+
 void test_demo()
 {
     test_mutable_arg();
